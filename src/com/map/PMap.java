@@ -1,5 +1,6 @@
 package com.map;
 
+import java.util.AbstractMap;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -68,6 +69,19 @@ public class PMap {
 		
 		
 	}
+	
+	static void insertAndPrint(AbstractMap<Integer, String> map)
+    {
+        int[] array= {-2, 1, -1, 0, 2};
+        for (int x: array)
+        {
+            map.put(x, Integer.toString(x));
+        }
+        for (int k: map.keySet())
+        {
+            System.out.print(k + ", ");
+        }
+    }
 
 	public static void main(String[] args) {
 		Map<Integer, String> mapHttpErrors = new HashMap<>();
@@ -92,14 +106,15 @@ public class PMap {
 				"===============LinkedHashMap=================");
 		
 		Map<String, String> mapContacts = new LinkedHashMap<>();
-		 
-		mapContacts.put("0169238175", "Tom");
+		LinkedHashMap<Integer, String> mapContacts2 = new LinkedHashMap<>();
 		mapContacts.put(null, null);
+		mapContacts.put("0169238175", "Tom");
 		mapContacts.put("0945678912", "Mary");
 		mapContacts.put("0981127421", "John");
 		 
 		System.out.println(mapContacts);
 		
+		insertAndPrint(mapContacts2);
 		System.out.println(
 				"===============TreeMap=================");	
 		Map<String, String> mapLang = new TreeMap<>();
